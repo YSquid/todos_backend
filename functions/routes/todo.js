@@ -4,7 +4,7 @@ const cors = require('cors')
 const router = express.Router();
 const { create, read, removeTodo } = require('../controller');
 
-router.get('/todos', cors(), read);
+router.get('/todos', read);
 
 router.post('/todo/create', cors(), create);
 
