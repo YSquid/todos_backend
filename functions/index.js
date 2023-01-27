@@ -11,6 +11,9 @@ const port = process.env.PORT || 8000;
 app.use(cors())
 
 // route middlewares
+app.get('/', (req, res) => {
+  res.send("Home route for the app")
+})
 app.use('/api', todoRoutes);
 
 app.listen(port, () => {
