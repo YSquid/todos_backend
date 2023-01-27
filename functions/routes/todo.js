@@ -5,7 +5,7 @@ const router = express.Router();
 const { create, read, removeTodo } = require('../controller');
 
 router.get('/', (req, res) => {
-    res.send('todos route with no database connection')
+    res.send({data: "Test message"})
 })
 
 router.get('/todos', read);
