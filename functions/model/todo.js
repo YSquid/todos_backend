@@ -1,17 +1,18 @@
-const pool = require('./database');
+const client = require('./database');
+client.connect();
 
 const create = (description) => {
-  pool.query('INSERT INTO todos (description) VALUES ($1) RETURNING *', [
+  client.query('INSERT INTO todos (description) VALUES ($1) RETURNING *', [
     description,
   ]);
 };
 
 const get = () => {
-   return pool.query('SELECT * FROM todos')
+   return client.query('SELECT * FROM todos')
 };
 
 const remove = (id) => {
-    pool.query("DELETE FROM todos WHERE todo_id = $1", [id])
+    client.query("DELETE FROM todos WHERE todo_id = $1", [id])
 };
 
 module.exports = {
