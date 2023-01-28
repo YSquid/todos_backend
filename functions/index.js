@@ -12,7 +12,7 @@ app.use(cors())
 
 // route middlewares
 app.get('/', (req, res) => {
-  res.send("Home route for the app")
+  res.send("Home route for the app - elephant branch")
 })
 app.use('/api', todoRoutes);
 
