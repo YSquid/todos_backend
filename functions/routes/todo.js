@@ -6,7 +6,7 @@ const router = express.Router();
 const { create, read, removeTodo } = require('../controller');
 
 router.get('/', (req, res) => {
-  res.send({ data: 'Supabase branch 2' });
+  res.send({ data: 'Supabase branch 3' });
 });
 
 router.get('/todos', async (req, res) => {
