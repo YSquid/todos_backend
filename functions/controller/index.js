@@ -26,7 +26,7 @@ exports.create = (req, res) => {
 exports.read = async (req, res) => {
   try {
     const tasks = await get();
-    return res.json({ data: tasks.rows });
+    return res.send(tasks)
   } catch (err) {
     return res.status(400).json({
       error: err,

@@ -7,7 +7,9 @@ const create = (description) => {
 };
 
 const get = async () => {
-   const {data, error} = await supabase.from('todos').select()
+   const {data} = await supabase.from('todos').select();
+   const jsonData = JSON.stringify(data);
+   return jsonData;
 };
 
 const remove = (id) => {
