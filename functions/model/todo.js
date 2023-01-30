@@ -1,9 +1,9 @@
 const supabase = require('./database')
 
-const create = (description) => {
-  pool.query('INSERT INTO todos (description) VALUES ($1) RETURNING *', [
-    description,
-  ]);
+const create = async (description) => {
+  const {error} = await supabase
+  .from('todos')
+  .insert({description: description})
 };
 
 const get = async () => {
@@ -12,8 +12,11 @@ const get = async () => {
    return jsonData;
 };
 
-const remove = (id) => {
-    pool.query("DELETE FROM todos WHERE todo_id = $1", [id])
+const remove = async (id) => {
+    const {error} = await supabase
+    .from('todos')
+    .delete()
+    .eq('todo_id', id)
 };
 
 module.exports = {
