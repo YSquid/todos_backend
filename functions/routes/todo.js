@@ -9,10 +9,7 @@ router.get('/', (req, res) => {
   res.send({ data: 'Supabase branch 3' });
 });
 
-router.get('/todos', async (req, res) => {
-  const { data } = await supabase.from('todos').select();
-  res.send(data);
-});
+router.get('/todos', read);
 
 router.post('/todo/create', cors(), create);
 
