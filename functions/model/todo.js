@@ -1,5 +1,4 @@
-const pool = require('./database');
-
+const supabase = require('./database')
 
 const create = (description) => {
   pool.query('INSERT INTO todos (description) VALUES ($1) RETURNING *', [
@@ -7,8 +6,8 @@ const create = (description) => {
   ]);
 };
 
-const get = () => {
-   return pool.query('SELECT * FROM todos')
+const get = async () => {
+   const {data, error} = await supabase.from('todos').select()
 };
 
 const remove = (id) => {
